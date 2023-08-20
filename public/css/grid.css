@@ -1,0 +1,49 @@
+
+
+/* Grid Container for Contributor posts-status */
+.grid-container-status {
+    display: grid;
+    grid-template-columns: 4;
+    background-color: #2196F3;
+    padding: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+
+  /* Grid Container for Moderator moderate-posts */
+  .grid-container-moderate {
+    display: grid;
+    grid-template-columns: 5;
+    background-color: #2196F3;
+    padding: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .one {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .two {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .three {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .four {
+    grid-column: 4;
+    grid-row: 1;
+  }
+
+  .five {
+    grid-column: 5;
+    grid-row: 1;
+  }

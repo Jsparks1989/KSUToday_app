@@ -1,0 +1,299 @@
+
+
+/* ============================================================= 
+   General Styling                                       
+=============================================================== */
+
+.bold {
+  font-weight: bold;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.hover {
+  cursor: pointer;
+}
+
+/* ============================================================= 
+   Login Button                                         
+=============================================================== */
+
+.center {
+  /* width: 50%; */
+  margin: 0 auto;
+  text-align: center;
+  }
+
+  .form-container {
+    float: left;
+    width: 100%;
+  }
+
+
+  /* ============================================================= 
+   Form styling                                          
+  =============================================================== */
+
+  input[type=text], select, input[type=email], input[type=password], input[type=file], textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .search-btn {
+    color: #000;
+    background: #febc11;
+    margin: 20px, 10px, 0px, 0px;
+    padding: 5px, 10px;
+    font-size: 16px;
+    outline-width: 0;
+    border-radius: 0;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ============================================================= 
+   Search post results - Post list styling   Read Posts page styling                                         
+  =============================================================== */
+
+
+/* ul */
+.read-post-list {
+  width: 100%;
+  list-style-type: none;
+  padding: 0px;
+}
+
+/* li */
+.li-wrapper {
+  width: 100%;
+  /* border: 1px solid black; */
+  margin: 10px 0px 10px 0px;
+}
+
+/* div holding img */
+.post-list-img {
+  width: 27%;
+  float: left;
+  /* border: 1px solid blue; */
+}
+
+.post-list-img img {
+    max-width: 100%;
+    max-height: 100%;
+    /* object-fit: cover; */
+}
+
+
+/* div holding content */
+.post-list-content {
+    float:right;
+    width: 72%;
+    /* border: 1px solid green; */
+}
+
+.post-list-summary {
+  word-wrap: normal;
+  clear: both;
+  line-height: 32px;
+
+}
+
+.post-list-created-at {
+  width: 45%;
+  float: left;
+    /* border: 1px solid black; */
+
+}
+
+.post-list-posted-by {
+  width: 45%;
+  float: right;
+    /* border: 1px solid black; */
+
+}
+
+.post-list-category {
+  float: right;
+  clear: both;
+  /* border: 1px solid black; */
+}
+
+.post-list-read-more {
+  /* border: 1px solid black; */
+  float: left;
+}
+
+.submit_btn {
+    background:#febc11;
+    border:none;
+    padding: 6.8px 10.88px;
+    /* margin: 0px 10px 0px 10px; */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.submit_btn:hover {
+    background:#feca44
+}
+
+
+  /* ============================================================= 
+   Create Post Form styling                                          
+  =============================================================== */
+
+  select[name='accounts_select'] {
+    background: #e5e5e5;
+  }
+
+  .form_required {
+    color: red;
+    font-weight: bold;
+  }
+
+  label {
+    /* font-size: 16px; */
+    font-weight: bold;
+  }
+
+  /* ============================================================= 
+   Show Post                                         
+  =============================================================== */
+
+  .sp-container {
+    width: 100%;
+    /* border: 1px solid blue; */
+    /* clear: both; */
+  }
+
+  .sp-created-at {
+    /* display: inline-block; */
+    width: 48%;
+    float: left;
+    /* border: 1px solid green; */
+  }
+
+  .sp-posted-by {
+    /* display: inline-block; */
+    width: 48%;
+    float: right;
+    /* border: 1px solid orange; */
+  }
+
+  .sp-file-attach {
+    /* display: inline-block; */
+    width: 48%;
+    float: right;
+    /* border: 1px solid orange; */
+  }
+
+  .sp-category {
+    width: 100%;
+    /* border: 1px solid black;  */
+    float: right;
+  }
+
+  .sp-full-message {
+    width: 49%;
+    float: left;
+    word-wrap: break-word;
+    line-height: 32px;
+    /* clear: left; */
+  }
+
+  .sp-image {
+    width: 49%;
+    float: right;
+    padding-top: 32px;
+  }
+
+  .sp-image img {
+    max-width: 100%;
+    max-height: 100%;
+    /* object-fit: cover; */
+}
+
+/* ============================================================= 
+   table                                        
+=============================================================== */
+
+.table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td, .table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table tr:nth-child(even){background-color: #f2f2f2;}
+
+.table tr:hover {background-color: #ddd;}
+
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #febc11;
+  color: #000
+}
+
+
+/* ============================================================= 
+   Pagination                                        
+=============================================================== */
+
+
+ul.pagination li {
+  display: inline-block;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+  font-size: 18px;
+}
+
+ul.pagination li.active {
+  background-color: #FEBC11;
+  color: black;
+  border: 1px solid #FEBC11;
+}
+
+ul.pagination li:hover:not(.active) {
+  background-color: #ddd;
+}
+
+
+
+/* ============================================================= 
+   admin moderate-posts view                                        
+=============================================================== */
+
+.mp-state {
+  min-width: 150px;
+}

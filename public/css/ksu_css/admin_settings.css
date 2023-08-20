@@ -1,0 +1,91 @@
+
+/**
+* =============================================================================== 
+* Add/Edit Categories
+* ===============================================================================
+*/
+
+
+    .categories {
+        padding: 8px 8px;
+    }
+
+    .categories:hover {
+        cursor: pointer;
+    }
+
+
+
+/**
+* =============================================================================== 
+* Add/Edit Alias Names 
+* ===============================================================================
+*/
+
+    .accounts {
+        padding: 8px 8px;
+    }
+
+    .accounts:hover {
+        cursor: pointer;
+    }
+
+    .draggable_x_hidden {
+        display: none;
+    }
+
+    .draggable_x_show {
+        display: inline;
+        padding: 10px;
+    }
+
+
+
+
+
+
+/**
+* =============================================================================== 
+* Pairing Alias Names & Users
+* ===============================================================================
+*/
+
+    #users_accounts_wrapper {
+        height: auto;
+        width: 100%;
+        display: flex;
+        
+    }
+    #users_here {
+        width: 50%;
+        /* float: left; */
+        height: auto;
+        /* display: inline-block; */
+    }
+
+    #accounts_here {
+        width: 50%;
+        height: auto;
+        /* float: right; */
+        /* display: inline-block; */
+        margin-left: 5%;
+    }
+
+    .dropped:hover {
+        cursor: pointer;
+    }
+
+    /* .account_draggable {
+        float: right;
+        display: block;
+    } */
+
+    .account_draggable:hover {
+        cursor: pointer;
+    }
+
+    .users_alias_box {
+        width: auto; 
+        height: 200px; 
+        border: 1px solid #999;
+    }

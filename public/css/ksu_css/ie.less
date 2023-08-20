@@ -1,0 +1,279 @@
+@charset "UTF-8";
+@-moz-document url-prefix() {}
+
+
+
+/*    b=#98002E   gold = #FEBC11 */
+
+
+
+
+//colors
+@gold: #febc11;
+@lightgray: #e5e5e5;
+@mediumgray: #888;
+@darkgray: #4d4d4d;
+@moduleBg: @lightgray;
+@blue: #0091B3;
+@darkblue: #005d83;
+
+
+@outerMargin: 5%; // for header
+
+@globalSpacingMargin: 2.5%; // used to space elements apart.  Usually impemented as margin-right for floated els
+
+
+@bodyFont: 'Nunito', Arial, Helvetica, sans-serif;
+@headerFont: 'Roboto Condensed', sans-serif;
+
+/**************************************************
+
+				   BASE RULES
+
+***************************************************/
+
+img {border: none;}
+
+/**************************************************
+
+					LAYOUT RULES
+
+***************************************************/
+.site_wrapper {min-width: 1150px;}
+.inner_rim {width: 85%;}
+
+#header {
+    .logo_container {
+        .logo {background: url(../images/ie/logo_sized.png) no-repeat;}
+        .top {background: url(../images/ie/header-banner-bg_sized.png) repeat-y;}
+        .bottom {background: url(../images/ie/header-banner-bottom_sized.png) no-repeat;}
+    }
+}
+
+#banner{
+    .banner_text {background: black; background: url(../images/ie/transparent_bg.png) repeat;}
+    .page_title {background: url(../images/ie/transparent_bg.png) repeat;}
+    &.no_img {
+        .bread_crumb {height: 20px;}
+    }
+}
+
+.core_worlds {
+    div {position: relative;}
+    .ie {position: absolute; left: 50%; margin-left: -40px;}
+}
+
+.events {
+    li {position:relative; background: none; filter: none;}
+
+    li .bg{
+        position:absolute;
+        z-index:-1;
+        top:0;
+        left:0;
+        width:100%; /* alternative: right:0; */
+        height:100%; /* alternative: bottom:0; */
+    }
+}
+
+form {
+    input[type="text"], input[type="submit"] { height: 35px; min-height: 0;}
+    input[type="checkbox"], input[type="radio"] {
+        + span { margin-top: 5px; }
+    }
+    select { height: auto; min-height: 0;}
+    
+    fieldset{
+        &.inline {
+            input { min-height: 0; }
+        }
+    }
+    
+}
+
+.teaser {
+    .col_1, .col_2 { float: none; display: inline-block; vertical-align: top; width: 47%;}
+    &.photo {
+        img, .content { float: none; display: inline-block; vertical-align: top;}
+        img { width: 39%; }
+    }
+}
+
+.linkList{
+    li {
+        a {background: url(../images/ie/arrow_sized.png) no-repeat 8px center;}
+    }
+}
+
+.cantina{
+    ul {
+        li{
+            a {background: url(../images/ie/arrow_sized.png) no-repeat 8px center;}
+        }
+    }
+}
+
+/*************************************
+            -- FOOTER --
+**************************************/
+
+
+/*************************************
+            -- MOBILE --
+**************************************/
+
+
+/**************************************************
+
+					NAVIGATION
+
+***************************************************/
+#high_council_chamber {
+    font-size: 18px; padding-left: 260px; padding-right: 6.8%;
+    li a {padding: 0 10px;}
+}
+
+
+.secondary_nav{
+    ul {
+        /* First Tier */
+        li {
+            .plus_wrapper {
+                float: none; display: inline-block; vertical-align: top;
+                &.minus {
+                    .vertical {display: none;}
+                }
+            }
+            
+            a {float: none; display: inline-block; vertical-align: top; padding-left: 2.2%; padding-right: 2.2%;}
+            
+            /* Second tier */
+            .second_tier li a { width: 78.5%; }
+        }
+    }
+}
+
+
+/**************************************************
+
+					MODULES
+
+***************************************************/
+
+
+
+/****** MOBILE ******/
+
+/**************************************************
+
+					HOME PAGE
+
+***************************************************/
+
+
+
+/**************************************************
+
+				     STATE RULES
+
+***************************************************/
+
+
+
+
+
+
+
+/****** MOBILE ******/
+
+
+
+
+/**************************************************
+
+      MIXINS, RESOURCES & ADDITIONAL STYLES
+
+***************************************************/
+
+
+/*************************************
+            -- MIXINS --
+**************************************/
+.stripListStyles {list-style: none; margin: 0; padding: 0;}
+.selfClear {content: ""; display: block; clear: both;}
+
+.opacity(@opacity) {
+    @opacityPercentage: @opacity * 100;
+    opacity: @opacity; -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(Opacity=(@{opacityPercentage}))";
+}
+
+.boxShadow(@value){
+    box-shadow: @value; -webkit-box-shadow: @value;
+}
+
+.borderRadius(@val){
+    border-radius: @val; -webkit-border-radius: @val; -moz-border-radius: @val;
+}
+
+/* give font size in rems, outputs both px and rem for backwards compatibility */
+.fontSize(@rem){
+    @emPxRatio: 16;
+    font-size: unit(@rem * @emPxRatio, px); font-size: unit(@rem, rem);
+}
+
+.stripInputAppearanceStyles{-webkit-appearance: none; -moz-appearance: none;}
+
+.cornerCut{background: url(../images/global/corner-cut.png) no-repeat right top; background-size: 1.8rem;}
+
+/*************************************
+ --  RESOURCES & ADDITIONAL STYLES  --
+**************************************/
+.linkList{
+    .stripListStyles;
+    li {
+        border-bottom: 1px solid @moduleBg;
+        a {padding: 10px 2%; padding-left: 13%; width: 85%; display: block; background: url(../images/global/arrow.png) no-repeat 8px center; background-size: 9px; transition: background-position 0.2s}
+        a:hover {background-position: 14px center;}
+    }
+}
+
+.btn {
+    display: inline-block; color: black; border: 1px solid @gold; padding: 8px 15px; text-transform: uppercase; cursor: pointer;
+    &:hover {background: @gold; color: black;}
+}
+
+.no_bottom_margin {margin-bottom: 0;}
+
+
+
+/**************************************************
+
+				   MEDIA QUERIES
+
+***************************************************/
+
+@media only screen and (max-width: 1460px){
+
+}
+
+
+@media only screen and (max-width: 1285px){
+
+}
+
+@media only screen and (max-width: 1050px){
+   
+    
+}
+
+/* FULL MOBILE */
+@media only screen and (max-width: 860px){
+    
+
+    
+}
+
+@media only screen and (max-width: 592px){
+
+    
+}

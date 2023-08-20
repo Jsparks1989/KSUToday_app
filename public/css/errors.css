@@ -1,0 +1,6 @@
+
+
+/* error class for all error messages when creating, updating posts */
+.error {
+    color: red;
+}

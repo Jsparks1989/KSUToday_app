@@ -1,0 +1,16 @@
+ksut_aws
+=================
+
+54.86.178.15
+
+ec2-54-86-178-15.compute-1.amazonaws.com
+
+apache httpd files in - /var/www/html/
+
+justins_key
+
+MariaDB 
+- password - impulse1989
+- user - root
+stop MariaDB - sudo systemctl stop mariadb
+start MariaDB on every boot - sudo systemctl enable mariadb

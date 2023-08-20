@@ -1,0 +1,118 @@
+
+/* @media only screen and (max-width: 1199px) and (min-width: 1000px){ */
+
+    @media only screen and (max-width: 3000px) and (min-width: 1000px){
+
+
+        .site_wrapper { 
+            min-width: 1000px!important; 
+        }
+
+        .inner_rim {
+            width: 90%!important;
+        }
+
+        /* "User Menu" is not displayed */
+        #user_menu_gold_bar {
+            display: none;
+        }
+
+        /* .mp-state {
+            min-width: 150px;
+        } */
+    }
+
+
+
+    @media only screen and (max-width: 1600px) and (min-width: 1000px){
+        /* 
+            CSS for admin-moderate-users.blade views (mu)
+            making 'Added At' & 'Last Login' column display none when window is less than 1000px wide
+        */
+
+        .mu-hide {
+            display: none;
+        }
+    }
+
+@media only screen and (max-width: 999px){
+
+    #user_menu_gold_bar {
+        display: inline;
+    }
+
+    /* #sidebar {
+        display: none;
+    } */
+
+    /* The "User Menu" right sidebar is not displayed */
+    .sidebar.right#sidebar {
+        display: none;
+    }
+
+/* 
+    CSS for show-post.blade views 
+    When window is 999px or less wide, image is above the full message and not next to it
+
+    Overridding some css from default.css
+*/
+    .site_wrapper { 
+        min-width: 500px!important; 
+    }
+
+    .content {
+        width: 95%!important;
+    }
+
+    .inner_rim {
+        width: 95%!important;
+    }
+
+    .sp-full-message {
+        width: 100%!important;
+    }
+
+    .sp-image {
+        width: 100%!important;
+        /* display:block!important; */
+    }
+
+    .sp-file-attach {
+        width: 100%!important;
+        /* display:block!important; */
+    }
+
+
+/* 
+    CSS for read-my-posts.blade views 
+    When window is 999px or less wide, image is above the full message and not next to it
+*/
+    .post-list-img {
+        width: 100%!important;
+    }
+
+    .post-list-content {
+        width: 100%!important;
+    }
+
+
+/* 
+    CSS for admin-moderate-posts.blade views (mp)
+    making 'Updated At' column display none when window is less than 1000px wide
+
+    CSS for admin-moderate-users.blade views (mu)
+    making 'Added At' & 'Last Login' column display none when window is less than 1000px wide
+*/
+    .mp-update-at {
+        display: none;
+    }
+
+    
+
+    /* .mp-state {
+        min-width: 150px;
+    } */
+
+}
+
+

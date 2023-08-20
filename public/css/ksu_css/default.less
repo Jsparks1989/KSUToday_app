@@ -1,0 +1,591 @@
+// compress: true
+@charset "UTF-8";
+@-moz-document url-prefix() {}
+
+/********************************************
+             TABLE OF CONTENTS
+---------------------------------------------
+
+1. Fonts
+2. Variables
+3. Base Rules
+4. Layout Rules
+   i.    Header
+   ii.   Gold Bar
+   iii.  Banner
+   iv.   Page Wrapper
+   v.    Page
+   vi.   Footer 
+   vii.  Footer Columns
+   viii. Footer Meta
+   ix.   Mobile logo
+   x.    Mobile Search
+5. Navigation
+   i.    Header Nav
+   ii.   Desktop Nav
+   iii.  Interior (Sidebar) Nav
+   iv.   Mobile Gold Bar Nav
+   v.    Mobile Main Nav (show/hide)
+6. Modules
+   i.    Outer rim
+   ii.   Inner rim
+   iii.  Cantina
+   iv.   Tie fighter
+   v.    Tie bomber
+   vi.   Tie advanced
+   vii.  Teaser
+   viii. News
+   ix.   Events
+7. Home Page
+   i.    Rotator
+   ii.   Core Worlds
+   iii.  Transmission
+   iv.   Section Title
+8. Mixins, Resources & Additional Styles
+   i.    Rem to px conversion mixins
+   ii.   Link List
+   iii.  Button
+   iv.   No Bottom Margin
+   v.    Plus
+9. Media Queries
+
+********************************************
+********************************************/
+
+
+
+
+
+//colors
+@gold: #febc11;
+@lightgray: #e5e5e5;
+@mediumgray: #888;
+@darkgray: #4d4d4d;
+@moduleBg: @lightgray;
+@blue: #007a95 /*#0091B3*/;
+@darkblue: #005d83;
+
+
+@outerMargin: 5%; // for header
+
+@globalSpacingMargin: 2.5%; // used to space elements apart.  Usually impemented as margin-right for floated els
+
+
+@bodyFont: Arial, Helvetica, sans-serif;
+@headerFont: 'Roboto Condensed', sans-serif;
+
+/**************************************************
+
+				   BASE RULES
+
+***************************************************/
+
+a {
+    color: @blue; text-decoration: none;
+    &:hover {color: #FEBC11;}
+    
+    &.black { color: black;
+        &:hover {color: @blue;}
+    }
+}
+.clear {clear: both}
+
+html{font-size: .85em; -webkit-font-smoothing: subpixel-antialiased; background: black;}
+body{margin: 0; padding: 0; font-family: @bodyFont; .font-size(1.2);}
+
+h1, h2, h3, h4, h5, h6 {font-family: @headerFont;}
+h1 { .font-size(2.6); }/**/
+h2 { .font-size(2.1); }/**/
+h3 { .font-size(1.8); }
+h4 { .font-size(1.5); }
+h5 { .font-size(1); }
+h6 { .font-size(.83); }
+
+
+hr {
+    outline: none; border: none; height: 1px; display: block; background: @mediumgray; width: 100%; clear: both;
+}
+
+
+
+/**************************************************
+
+					LAYOUT RULES
+
+***************************************************/
+
+.site_wrapper { min-width: 1200px; }
+
+.no_script {
+    background: #ee0707; position: fixed; z-index: 10; width: 95.5%; font-size: 1rem; text-align: center; .padding(.3125, 0); padding-right: 2.5%; padding-left: 2.5%;;
+    .oops {font-size: 1.2rem; position: relative;}
+}
+
+.site_title {color: white; font-family: palatino; width: 80%; margin: 0 auto; text-align: center; .margin-top(.6875);}
+.site_title a {color: white;}
+#header {
+    background: black; width: 100%; .height(5.625); position: relative;
+    .logo_container {
+        .width(18.75); position: absolute; z-index: 1; left: -10px;
+        .logo {background: url(logo.png) no-repeat; background-size: 100%; background-position: top center; margin: 0 auto; width: 82%; padding-bottom: 21%;}
+        .top {
+            background: url(header-banner-bg.png) repeat-y; background-size: 100% 1px; .padding-top(2.9375); .padding-bottom(2);
+            a {width: 90%; display: block; margin: 0 auto;}
+        }
+        .bottom {background: url(header-banner-bottom.png) no-repeat; background-size: 100%; padding-bottom: 20%; width: 100%;}
+        
+        
+        &.small {
+            .top { .padding-top(1.625); .padding-bottom(1);}
+            .site_title {.font-size(1.2);}
+        }
+        &.medium {
+            .top { .padding-top(1.3125); .padding-bottom(.75);}
+            .site_title {.font-size(1.1); .line-height(1.4);}
+        }
+        &.large {
+            .top {.padding-top(.5625); .padding-bottom(.5625);}
+            .site_title {.font-size(1); .line-height(1.4);}
+        }
+        &.xlarge {
+            .top {.padding-top(.5625); .padding-bottom(.5625);}
+            .site_title {.font-size(.9);}
+        }
+    }
+}
+@-moz-document url-prefix() { #header .logo_container .logo {width: 81%; background-size: 100%;} }
+
+
+.search {
+    float: right; .margin-top(1.875);
+    label { display: none; }
+    input[type="text"], input[type="submit"] {outline: none; border: none; margin: 0; .padding(.3125); float: left; box-sizing: content-box; .height(1); min-height: 0; width: auto;}
+    input[type="text"] {}
+    input[type="submit"] {
+        background: @gold; cursor: pointer; -moz-box-sizing: content-box; box-sizing: content-box; .font-size(.7); -webkit-appearance: none; -moz-appearance: none; border-radius: 0;
+        &:hover {background: lighten(@gold, 10%);}
+    }
+}
+
+
+#gold_bar {background: @gold; width: 100%; .min-height(2.5); .line-height(2.5);}
+
+
+#banner {
+    width: 100%; position: relative;
+    img {width: 100%;}
+    .banner_text {
+        background: rgba(0,0,0,.8); position: absolute; .padding(1.125); .padding-bottom(2); right: @outerMargin * 2; bottom: 8%; max-width: 70%;
+        h1 {color: white; margin: 0; .font-size(1.375); .margin-top(.125);}
+        h2 {color: @gold; margin: 0; .font-size(.9375); font-family: @bodyFont; font-weight: 300;}
+        
+        &.left {left: 10%; right: auto;}
+        &.top { top: 8%; bottom: auto; }
+        
+        &:hover { 
+            background: @gold;
+            h1, h2 { color: black; }
+        }
+    }
+    
+
+    .page_title {position: absolute; padding-left: @outerMargin ; margin: 0; bottom: 0; z-index: 1; color: white; .font-size(5); width: 100% - @outerMargin; /*text-shadow: 0 0 20px #000000;*/ background: rgba(0,0,0,.5);}
+    
+    &.no_img {
+        background: @moduleBg; /*.padding(4, 0); .padding-bottom(0);*/
+        h1 {margin: 0; .padding-top(1.875); background: none; color: black; position: relative; .font-size(2.5);}
+        > img {display: none;}
+    }
+    
+    .bread_crumb {
+        .stripListStyles; .font-size(1); .padding-bottom(.625); .padding-top(4);
+        &::after {.selfClear;}
+        li {
+            float: left; margin-right: 1%; color: black;
+            &.active a {color: black;}
+            a {color: @blue;}
+        }
+    }
+}
+
+.page_wrapper {.padding-bottom(3); .padding-top(1.875); background: white;}
+
+.page {
+    > .content {
+        width: 60%; float: left; .margin-bottom(3);
+        h1:first-child {margin-top: 0;}
+    }
+    .sidebar {
+        width: 40% - @outerMargin;
+        &.left {float: left; margin-right: @outerMargin; width: 28%; position: relative;}
+        &.right {float: right;}
+        &.left + .content {width: 67%;}
+    }
+}
+
+/*************************************
+            -- FOOTER --
+**************************************/
+#footer {
+    width: 100%; .padding(1.875, 0); /*margin-top: 50px;*/ background: black; color: @lightgray; .font-size(1);
+    h1 {.font-size(1.3);}
+    h2 {.font-size(1.2);}
+    a {color: @lightgray;}
+    a:hover {color: @gold;}
+    
+    .meta_separator {.margin-top(3.125); background: @gold; height: 2px; display: inline-block;}
+}
+.copyright {text-align: center;}
+.contact_info {
+        &::after {.selfClear;}
+        h1 {margin-bottom: 0; .font-size(1.5); text-transform: uppercase; color: @gold; display: block; width: 100%;}
+        h2 {.font-size(1.3);}
+        .kennesaw_campus, .marietta_campus {float: left;}
+        .kennesaw_campus { padding-right: 5%; }
+    }
+
+
+/**************************************************
+
+					NAVIGATION
+
+***************************************************/
+
+/* NAV IN HEADER */
+#header_nav {
+    float: right; border-right: 1px solid white; .margin-right(1.25); .padding(.3125, 0); .padding-right(1.25); .margin-top(.9375);
+    ul {
+        .stripListStyles; float: right;
+        li {float: left;}
+    }
+    .utility {
+        color: #888; .font-size(0.85);
+        li {
+            .padding-left(.9375);
+            a {color: @lightgray;}
+            a:hover {color: @blue;}
+        }
+    }
+    .active {
+        color: @gold; clear: both; .font-size(1.1); .margin-top(.3125);
+        li {
+            .padding-left(.9375);
+            a {color: @gold;}
+            a:hover {color: @blue;}
+        }
+    }
+}
+
+
+/* DESKTOP NAV */
+#high_council_chamber {
+    .stripListStyles; margin-left: @outerMargin * 2; .padding-left(18.75); padding-right: @outerMargin; .font-size(1.17); box-sizing: border-box;
+    li {float: left; /*margin-right: @outerMargin;*/}
+    li:nth-child(7) {margin-right: 0;}
+    li:hover {background: lighten(@gold, 10%);}
+    a {color: black; width: 72%; .padding(0, .8); display: block; white-space: nowrap;}
+    
+    .mobile {display: none;}
+}
+
+
+
+
+
+
+
+
+
+/**************************************************
+
+					MODULES
+
+***************************************************/
+
+/* GRAY BOX THAT GOES ACROSS WHOLE SCREEN */
+.outer_rim {
+    width: 100%; /*min-height: 150px;*/ .padding(1.875, 0); .margin(1.875, 0); background: @lightgray; clear: both;
+    .btn {
+        background: @gold; border: none;
+        &:hover {background: lighten(@gold, 10%);}
+    }
+}
+/* GENERAL CONTENT WRAPPER */
+.inner_rim {width: 80%; margin: 0 auto; clear: both; position: relative;}
+
+.outer_rim:after, .inner_rim:after, .core_worlds:after, .news:after, .events:after, .az_list:after {content: ""; display: block; clear: both;}
+
+/* ROTATOR */
+.flexslider {
+    border: none; .boxShadow(none); overflow: hidden; margin: 0; clear: both; .border-radius(0); z-index: 0;
+    .slides > li {position: relative;}
+    
+    .flex-control-paging {
+        bottom: 2%; right: 50%; margin-right: -50px; position: absolute; width: auto; opacity: .7;
+        li {
+            overflow: hidden;
+            a {background: @lightgray; border: 1px solid #777; box-shadow: none;}
+            a.flex-active {background: @gold;}
+        } 
+    } 
+}
+
+
+
+
+
+
+
+/**************************************************
+
+      MIXINS, RESOURCES & ADDITIONAL STYLES
+
+***************************************************/
+
+
+/*************************************
+            -- MIXINS --
+**************************************/
+@emPxRatio: 16;
+.stripListStyles {list-style: none; margin: 0; padding: 0;}
+.selfClear {content: ""; display: block; clear: both;}
+
+.opacity(@opacity) {
+    @opacityPercentage: @opacity * 100;
+    opacity: @opacity; -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(Opacity=(@{opacityPercentage}))";
+}
+
+.boxShadow(@value){
+    box-shadow: @value; -webkit-box-shadow: @value;
+}
+
+.border-radius(@rem){
+    border-radius: unit(@rem * @emPxRatio, px); -webkit-border-radius: unit(@rem * @emPxRatio, px); -moz-border-radius: unit(@rem * @emPxRatio, px);
+    border-radius: unit(@rem, rem); -webkit-border-radius: unit(@rem, rem); -moz-border-radius: unit(@rem, rem);
+}
+
+
+
+.transition(@prop, @time){
+    -ms-transition: @arguments;
+    -webkit-transition-property: @prop;
+    -webkit-transition-duration: @time;
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+    -o-transition: @arguments;
+    transition: @arguments;
+}
+
+
+.transform(@value){
+    -ms-transform: @value;
+    -webkit-transform: @value;
+    -moz-transform: @value;
+    -o-transform: @value;
+    transform: @value;
+}
+
+.rotate(@degree){
+    .transform(rotate(unit(@degree, deg)));
+}
+
+
+/* give font size in rems, outputs both px and rem for backwards compatibility */
+.font-size(@rem){
+    font-size: unit(@rem * @emPxRatio, px); font-size: unit(@rem, rem);
+}
+.line-height(@rem){
+    line-height: unit(@rem * @emPxRatio, px); line-height: unit(@rem, rem);
+}
+.height(@rem){
+    height: unit(@rem * @emPxRatio, px); height: unit(@rem, rem);
+}
+.max-height(@rem){
+    max-height: unit(@rem * @emPxRatio, px); max-height: unit(@rem, rem);
+}
+.min-height(@rem){
+    min-height: unit(@rem * @emPxRatio, px); min-height: unit(@rem, rem);
+}
+.width(@rem){
+    width: unit(@rem * @emPxRatio, px); width: unit(@rem, rem);
+}
+.max-width(@rem){
+    max-width: unit(@rem * @emPxRatio, px); max-width: unit(@rem, rem);
+}
+.min-width(@rem){
+    min-width: unit(@rem * @emPxRatio, px); min-width: unit(@rem, rem);
+}
+
+
+.margin(@rem){
+    margin: unit(@rem * @emPxRatio, px); margin: unit(@rem, rem);
+}
+.margin(@top-bottom, @left-right){
+    margin: unit(@top-bottom * @emPxRatio, px) unit(@left-right * @emPxRatio, px); margin: unit(@top-bottom, rem) unit(@left-right, rem);
+}
+.margin(@top, @right, @bottom, @left){
+    margin: unit(@top * @emPxRatio, px) unit(@right * @emPxRatio, px) unit(@bottom * @emPxRatio, px) unit(@left * @emPxRatio, px); margin: unit(@top, rem) unit(@right, rem) unit(@bottom, rem) unit(@left, rem);
+}
+.margin-top(@rem){
+    margin-top: unit(@rem * @emPxRatio, px); margin-top: unit(@rem, rem);
+}
+.margin-bottom(@rem){
+    margin-bottom: unit(@rem * @emPxRatio, px); margin-bottom: unit(@rem, rem);
+}
+.margin-left(@rem){
+    margin-left: unit(@rem * @emPxRatio, px); margin-left: unit(@rem, rem);
+}
+.margin-right(@rem){
+    margin-right: unit(@rem * @emPxRatio, px); margin-right: unit(@rem, rem);
+}
+
+
+.padding(@rem){
+    padding: unit(@rem * @emPxRatio, px); padding: unit(@rem, rem);
+}
+.padding(@top-bottom, @left-right){
+    padding: unit(@top-bottom * @emPxRatio, px) unit(@left-right * @emPxRatio, px); padding: unit(@top-bottom, rem) unit(@left-right, rem);
+}
+.padding(@top, @right, @bottom, @left){
+    padding: unit(@top * @emPxRatio, px) unit(@right * @emPxRatio, px) unit(@bottom * @emPxRatio, px) unit(@left * @emPxRatio, px); padding: unit(@top, rem) unit(@right, rem) unit(@bottom, rem) unit(@left, rem);
+}
+.padding-top(@rem){
+    padding-top: unit(@rem * @emPxRatio, px); padding-top: unit(@rem, rem);
+}
+.padding-bottom(@rem){
+    padding-bottom: unit(@rem * @emPxRatio, px); padding-bottom: unit(@rem, rem);
+}
+.padding-left(@rem){
+    padding-left: unit(@rem * @emPxRatio, px); padding-left: unit(@rem, rem);
+}
+.padding-right(@rem){
+    padding-right: unit(@rem * @emPxRatio, px); padding-right: unit(@rem, rem);
+}
+
+
+.removeJitter() {
+    -o-backface-visibility: hidden;
+    -o-transform: translateZ(0) scale(1.0, 1.0);
+    -ms-backface-visibility: hidden;
+    -ms-transform: translateZ(0) scale(1.0, 1.0);
+    -moz-backface-visibility: hidden;
+    -moz-transform: translateZ(0) scale(1.0, 1.0);
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(1.0, 1.0);
+}
+
+.stripInputAppearanceStyles{-webkit-appearance: none; -moz-appearance: none;}
+
+
+/*************************************
+ --  RESOURCES & ADDITIONAL STYLES  --
+**************************************/
+
+
+.plus(@width: .75em, @color: @blue){
+    .plus_wrapper {
+        width: @width; height: @width; position: relative; cursor: pointer;
+
+        span {background: @blue; display: block; position: absolute; .border-radius(1em);}
+        .vertical {width: .125em; height: @width; left: 50%; margin-left: -.0625em; .transition(transform, .4s);}
+        .horizontal {width: @width; height: .125em; top: 50%; margin-top: -.0625em;}
+
+        &.minus .vertical { .rotate(90); }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* INTERIOR NAV - (SIDEBAR) */
+.secondary_nav {
+    .margin-bottom(3);
+    ul {
+        .stripListStyles; 
+        li {
+            border-bottom: 1px solid @moduleBg;
+            &::after {.selfClear;}
+            
+            a {padding: 12.8px 3%; padding: .8rem 3%; width: 84.5%; display: block; float: left;}
+            
+            .plus(.7em);
+            .plus_wrapper {padding: 18.4px 2.5%; padding: 1.15rem 2.5%; float: right;}
+        }
+        
+        
+        /* Second Tier Nav */
+//        .second_tier {
+//            clear: both; display: none;
+//            li {
+//                a {padding-left: 8%; width: 70%;}
+//            }
+//        }
+//        
+//        /* Third Tier Nav */
+//        .third_tier {
+//            clear: both; display: none;
+//            li {
+//                a {padding-left: 12%; width: 76%;}
+//            }
+//        }
+    }
+    
+    /* Nav Colors & Actives */
+
+    /* First Tier */
+    & > ul > li {
+        .transition(background-color, .4s);
+        //& > a {.transition(color, .4s);}
+        &.active {
+            background: @darkgray;
+            > a {color: white;}
+        }
+        &.active_section {
+            background: @darkgray;
+            & > a {color: white;}
+        }
+        &.active_section_transition {
+            background: @darkgray;
+            & > a {color: white;}
+        }
+    }
+//    .second_tier {
+//        & > li {
+//            .transition(background-color, .4s);
+//            background: lighten(@moduleBg, 5%);
+//            &.active {
+//                background: @moduleBg;
+//                > a {color: black;}
+//            }
+//            &.active_section {
+//                background: @mediumgray;
+//                & > a {color: white;}
+//            }
+//            &.active_section_transition {
+//                background: @mediumgray;
+//                & > a {color: white;}
+//            }
+//        }
+//    }
+//    .third_tier {
+//        & > li {
+//            background: @lightgray; border-color: darken(@moduleBg, 10%);
+//            &.active {
+//                > a {color: black;}
+//            }
+//        }
+//    }
+    
+    
+}

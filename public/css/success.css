@@ -1,0 +1,11 @@
+
+
+
+
+/* 
+    success class for all flash session messages when a post  
+    is successfully created, updated 
+*/
+.success {
+    color: green;
+}
